@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+   flex-direction: column;  
+ 
+  background-color: blue;
+  width: 100%;
+  
+}
+
+.donuts {
+  width : 20%;
+  height:  30%;
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  z-index: 1;
+  
+  /* justify-content: center;
+  align-items: center; */
+}
+

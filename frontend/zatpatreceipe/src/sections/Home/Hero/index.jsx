@@ -1,11 +1,21 @@
 import React from 'react'
 import Leaf from '../../../assets/Home/Hero/Leaf.svg'
-const Hero = () => {
+import BlueBerry from '../../../assets/Home/Hero/BlueBerry.svg'
+import Donuts from '../../../assets/Home/Hero/Donuts.svg'
+import "../../../styles/Home/Hero/index.css"
+function Hero() {
   return (
-    <div>Hero
-      <img src ={Leaf} alt="Leaf" />
-    </div>
     
+      <div className='container'>
+       
+        <div className='donuts'>
+          <img src={Donuts} alt="Donuts" />
+         
+        </div>
+          
+
+       </div>
+
   )
 }
 
