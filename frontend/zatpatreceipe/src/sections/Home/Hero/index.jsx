@@ -20,6 +20,8 @@ function Hero() {
         <div className="hero__leafBox">
         <img src = {Leaf3} />
         <img src = {Leaf4} />
+
+
         </div>
       </div>
     </div>

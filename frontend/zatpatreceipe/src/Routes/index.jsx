@@ -1,10 +1,16 @@
 import React from 'react'
 import Home from "../pages/Home"
+import Cardspage from '../pages/Cardspage'
+
+
 
 const Routes = () => {
   return (
     <>
-      <Home />
+      {/* <Home /> 
+      */}
+      <Cardspage />
+      
 
 
       

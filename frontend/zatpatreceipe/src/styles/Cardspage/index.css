@@ -1,0 +1,127 @@
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+   flex-direction: column;
+    background-color: whitesmoke;
+}
+.h1 {
+   padding-top: 100px;
+   padding-left: 200px;
+display:flex;
+flex-direction: row;
+  
+}
+.btn {
+    background-color: yellow;
+    margin-left: 550px;
+    border: solid black 2px;
+    width: 20%;
+    height: 40px;
+   
+}
+
+
+.bigdiv{
+display: inline-block;
+margin-top: 100px;
+margin-left: 100px;
+margin-right: 100px;
+/* background-color: blueviolet; */
+display:flex;
+flex-direction:column;
+
+}
+
+.uppersmalldiv
+{
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+    
+
+.SD1{
+    background-color: orange;
+    height: 220px;
+    width : 210px;
+    margin-left: 50px;
+    border-radius: 10%;
+    border: 2px solid black;
+   
+}
+
+.SD2{
+    background-color: skyblue;
+    height: 220px;
+    width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
+
+.SD3{
+    background-color:  orange;
+    height: 220px;
+    width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
+
+.SD4{
+    background-color: skyblue;
+    height: 220px;
+     width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+        border-radius: 10%;
+        border: 2px solid black;
+}
+
+
+
+.lowersmalldiv
+{
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: row;
+}
+    
+
+.SD5{
+    background-color:  orange;
+    height: 220px;
+     width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
+
+.SD6{
+    background-color: skyblue;
+    height: 220px;
+    width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
+
+.SD7{
+    background-color:  orange;
+    height: 220px;
+     width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
+
+.SD8{
+    background-color: skyblue;
+    height: 220px;
+     width : 210px;
+    margin-left: 50px;
+      border-radius: 10%;
+      border: 2px solid black;
+}
