@@ -9,8 +9,8 @@ import Spclcategorys from '../../sections/Home/Spclcategorys'
 const Home = () => {
   return (    
  <>
-  {/* <Hero/> */}
-  {/* <Categories/> */}
+  <Hero/> 
+  <Categories/>
   <Spclcategorys/>
  </>
   )

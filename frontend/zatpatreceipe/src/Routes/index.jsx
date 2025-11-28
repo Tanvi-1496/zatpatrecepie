@@ -7,7 +7,8 @@ import Home from "../pages/Home"
 const Routes = () => {
   return (
     <>
-      <Home />      
+      <Home /> 
+           
     </>
   )
 }
