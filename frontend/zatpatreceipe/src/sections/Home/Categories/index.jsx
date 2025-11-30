@@ -1,7 +1,11 @@
 import React from "react";
 import "../../../styles/Home/Categories/index.css";
+import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
+
+  const navigate = useNavigate()
+
   const cardContent = [
     {
       title: "sd1",
@@ -45,6 +49,8 @@ const Categories = () => {
           <div className="categories__cards">{card.title}</div>
         ))}
       </div>
+      <a href = "/about-us">Go to</a>
+      <button onClick={() => navigate("about-us") } >Go to</button>
     </div>
   );
 };
