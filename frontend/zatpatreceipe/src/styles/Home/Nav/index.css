@@ -1,0 +1,31 @@
+.navbar {
+ background-color: #e24f55;
+ min-height: 70px;
+ width:100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 20px;
+ 
+}
+
+.navbar_logo {
+  width:70px;
+  height: auto;
+
+}
+.navbar_links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  background-color: transparent;
+  align-items: center;
+  
+}
+
+.links{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: transparent;
+  }
