@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background-color: #fff6e7;
+    /* background-color: #fff6e7; */
     
 }
 
@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-
+  position: relative;
 }
 .hero_content_first_line{
   display: flex;
@@ -65,14 +65,14 @@
   background-color: transparent;
 }
 .hero_image{
-  position: relative;
   flex: 1;
 }
 .hero_image_blob{
   height: 450px;
+  width: 600px;
   position: absolute;
-  top:-200px;
-  right:0;
-  
+  top:0;
+  right:10%;
+  z-index: 3;
 
 }
