@@ -6,11 +6,9 @@ const Nav = () => {
   return (
     <nav className="navbar">
         <img src={logo} alt="Zatpat Recipe Logo" className="navbar_logo" />
-         <ul className="navbar_links">
-            <li><a className="links" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-         </ul>
+        <div className='navbar_linksContainer'>
+            <a className='navbar_links' href="#home">Home</a><a className='navbar_links' href="#about">About</a><a className='navbar_links' href="#contact">Contact</a><button>cart</button>
+        </div>
 
        </nav>
   )
