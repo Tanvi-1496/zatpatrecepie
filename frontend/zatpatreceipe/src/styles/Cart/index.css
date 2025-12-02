@@ -1,0 +1,9 @@
+.cart_container{
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    width: 100%;
+    background-color: white;
+    min-height: 100dvh;
+    
+}

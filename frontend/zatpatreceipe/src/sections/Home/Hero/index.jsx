@@ -2,6 +2,7 @@ import React from 'react'
 import "../../../styles/Home/Hero/index.css"
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import blob from "../../../assets/Home/Hero/blob.png"
+import jelly from "../../../assets/Home/Hero/jelly.png"
 
 const Hero = () => {
   return (
@@ -26,7 +27,9 @@ const Hero = () => {
         </div>
       </div>
       <div className='hero_image'>
+         <img src={jelly} alt="food product " className='hero_image_jelly'/>
         <img src={blob} alt="hero image" className='hero_image_blob'/>
+       
       </div>
     </div>
   )

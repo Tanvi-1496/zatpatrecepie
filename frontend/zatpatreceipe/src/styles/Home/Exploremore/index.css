@@ -1,0 +1,126 @@
+.exploremore_container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff6e7;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1300px;
+    margin: 20px auto;
+}
+
+.explore_heading{
+    margin-top: 20px;
+}
+.products_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  
+
+}
+.horizontal_bar{
+    gap: 40px;
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+   
+}
+.navigation_btns {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  color: rgb(75, 29, 8);
+  position: relative;
+}
+
+/* underline only when active */
+.navigation_btns.active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background-color: black;
+  height: 2px;
+  left: 0;
+  bottom: -15px;
+}
+
+
+.productss_container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3,minmax(250px,350px));
+    gap: 25px 20px;  /* row-gap column-gap */
+    justify-content: space-between;
+    align-items: stretch;
+    justify-items: center;
+    max-width: 1100px;
+
+}
+
+.product_item{
+    border: 1px solid grey;
+    border-radius: 20px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px;
+    gap: 25px;
+    background-color: white;
+
+}
+.product_img{
+    height:400px;
+}
+.product_content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100%;
+    border-top:1px dashed black;
+}
+.product_title{
+    font-size: 30px;
+    margin-top: 10px;
+}
+.product_price_quantity{
+    display: flex;
+    justify-content: space-between;
+    margin-block: 15px;
+}
+.price{
+    font-size: 25px;
+}
+
+
+.addtocart{
+    margin-top: auto;
+    background-color: orange;
+    padding: 15px 20px;
+    color: white;
+    border:1px solid black;
+    border-radius: 3px;
+    font-size: 20px;
+
+}
+.buynow{
+    background-color: orange;
+    padding: 15px 20px;
+    color: white;
+    border:1px solid black;
+   border-radius: 3px;
+   font-size: 20px;
+}
+.product_desc{
+    font-style: normal;
+}
