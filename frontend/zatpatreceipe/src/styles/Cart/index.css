@@ -1,9 +1,144 @@
-.cart_container{
+/* ------------------------------ */
+/* CART CONTAINER - FULL SCREEN */
+/* ------------------------------ */
+.cart_container {
     position: fixed;
-    top: 50px;
-    left: 50px;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100dvh; /* full viewport height */
     background-color: white;
-    min-height: 100dvh;
-    
+    animation: slideCart 0.35s ease forwards;
+    box-shadow: 0 6px 12px rgba(60, 9, 108, 0.2); /* soft purple shadow */
+    padding: 12px;
+    z-index: 999;
+    overflow-y: auto; /* scroll if content overflows */
 }
+
+/* ------------------------------ */
+/* SLIDE-IN ANIMATION */
+/* ------------------------------ */
+@keyframes slideCart {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* ------------------------------ */
+/* CART ITEM BOX - MERGED, VIOLET THEME, SHADOWS */
+/* ------------------------------ */
+.cart_item_box {
+    width: 90%;
+    margin: 12px auto;
+    background-color: #9D4EDD; /* premium violet */
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+/* optional divider line between items */
+.cart_item_box + .cart_item_box {
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ------------------------------ */
+/* HORIZONTAL CONTENT INSIDE BOX */
+/* ------------------------------ */
+.cart_item_content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ------------------------------ */
+/* IMAGE STYLE */
+/* ------------------------------ */
+.cart_item_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------ */
+/* TEXT BLOCK */
+/* ------------------------------ */
+.cart_item_text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart_item_title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 4px;
+}
+
+.cart_item_desc {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+}
+
+/* ------------------------------ */
+/* PRICE STYLE */
+/* ------------------------------ */
+.cart_item_price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FF9E00; /* gold accent */
+}
+
+/* ------------------------------ */
+/* QUANTITY BUTTONS (UI ONLY) */
+/* ------------------------------ */
+.cart_item_quantity {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.quantity_btn {
+    background-color: #FF6D00; /* orange from palette */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+/* ------------------------------ */
+/* CLOSE CART BUTTON */
+/* ------------------------------ */
+.close_cart {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #9D4EDD;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ------------------------------ */
+/* INNER EMPTY BOX (optional spacing) */
+/* ------------------------------ */
+.inner_empty_box {
+    padding: 20px;
+}
+
+/* ------------------------------ */
+/* NO MAX WIDTH - FULL SCREEN CART */
+/* ------------------------------ */

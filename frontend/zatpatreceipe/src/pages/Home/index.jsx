@@ -19,7 +19,11 @@ const Home = () => {
         setCartProducts={setCartProducts}
       />
       {cartOpen && (
-        <Cart cartProducts={cartProducts} setCartOpen={setCartOpen} />
+        <Cart
+          cartProducts={cartProducts}
+          setCartOpen={setCartOpen}
+          setCartProducts={setCartProducts}
+        />
       )}
       {/* <Categories/>
   <Spclcategorys/> */}

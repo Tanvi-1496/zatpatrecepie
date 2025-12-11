@@ -9,6 +9,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "jelly",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -16,6 +17,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "cake",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -23,6 +25,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Drink",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -30,6 +33,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Donot",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -37,6 +41,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Milkshake",
       price: 250,
+      weight: "",
       description: "sample text",
     },
   ];
@@ -47,6 +52,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "jelly",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -54,6 +60,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "cake",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -61,6 +68,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Drink",
       price: 250,
+      weight: "",
       description: "sample text",
     },
 
@@ -69,6 +77,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Milkshake",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -76,6 +85,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Chocolate",
       price: 500,
+      weight: "",
       description: "sample text",
     },
   ];
@@ -86,6 +96,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "cake",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -93,6 +104,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Drink",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -100,6 +112,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Donot",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -107,6 +120,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Chocolate",
       price: 500,
+      weight: "",
       description: "sample text",
     },
   ];
@@ -117,6 +131,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "jelly",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -124,6 +139,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "cake",
       price: 500,
+      weight: "",
       description: "sample text",
     },
 
@@ -132,6 +148,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Donot",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -139,6 +156,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Milkshake",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -146,6 +164,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Chocolate",
       price: 500,
+      weight: "",
       description: "sample text",
     },
   ];
@@ -156,6 +175,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "jelly",
       price: 250,
+      weight: "",
       description: "sample text",
     },
 
@@ -164,6 +184,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Drink",
       price: 250,
+      weight: "",
       description: "sample text",
     },
     {
@@ -171,6 +192,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Donot",
       price: 500,
+      weight: "",
       description: "sample text",
     },
     {
@@ -178,6 +200,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
       img: jelly,
       title: "Milkshake",
       price: 250,
+      weight: "",
       description: "sample text",
     },
   ];
@@ -226,7 +249,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
                   </p> */}
                   <button
                     className="addtocart"
-                    onClick={() => {
+                    onClick={() => { 
                       setCartOpen(true);
                       setCartProducts((prev) => [...prev, card]);
                     }}
