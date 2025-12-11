@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Nav setCartOpen={setCartOpen} />
-      {/* <Hero/>  */}
+      {/* <Hero/>    */}
       <Exploremore
         setCartOpen={setCartOpen}
         setCartProducts={setCartProducts}
