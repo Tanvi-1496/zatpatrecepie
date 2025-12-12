@@ -4,10 +4,22 @@ import "../../styles/AboutUs/index.css";
 const AboutUs = () => {
   return (
     <div className="aboutus_container">
-      {/* HERO HEADER */}
       <section className="hero_section">
-        <h1>Zatpatrecepie</h1>
-        <p>“Healthy. Tasty. Trusted by Millions.”</p>
+        <div className="hero_blob">
+          <h1>Zatpatrecepie</h1>
+          <p>“Healthy. Tasty. Trusted by Millions.”</p>
+        </div>
+        {/* VERY DEEP S-Curve */}
+        <svg
+          className="hero_s_curve"
+          viewBox="0 0 1440 400"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,160 C360,600 1080,-200 1440,240 L1440,400 L0,400 Z"
+            fill="#fffdf8"
+          />
+        </svg>
       </section>
 
       {/* TWO-COLUMN FEATURE SECTION */}
@@ -43,8 +55,20 @@ const AboutUs = () => {
             <span>50M+</span>
           </div>
           <div className="social_buttons">
-            <button>Visit YouTube</button>
-            <button>Follow Instagram</button>
+            <a
+              href="https://www.youtube.com/@zatpatrecipesA1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Visit YouTube</button>
+            </a>
+            <a
+              href="https://www.instagram.com/zatpatrecipesa1?igsh=NTlkdHNqMHFudzVw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Follow Instagram</button>
+            </a>
           </div>
         </div>
       </section>

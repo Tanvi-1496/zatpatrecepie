@@ -6,6 +6,7 @@ import Categories from "../../sections/Home/Categories";
 import Spclcategorys from "../../sections/Home/Spclcategorys";
 import Exploremore from "../../sections/Home/Exploremore";
 import Cart from "../../components/Cart";
+import AboutUs from "../About";
 
 const Home = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -25,6 +26,7 @@ const Home = () => {
           setCartProducts={setCartProducts}
         />
       )}
+     
       {/* <Categories/>
   <Spclcategorys/> */}
     </>
