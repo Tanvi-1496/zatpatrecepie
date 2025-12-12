@@ -16,7 +16,7 @@ const Nav = ({ setCartOpen }) => {
         <a className="navbar_links" href="#home">
           Home
         </a>
-        <a className="navbar_links" href="#about">
+        <a className="navbar_links" href="/about-us">
           About
         </a>
         <a className="navbar_links" href="#contact">
