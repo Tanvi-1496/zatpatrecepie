@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../../styles/Home/Exploremore/index.css";
 
-
 export const calcPriceAccToWeight = (weight) => {
+  console.log(weight);
+
   switch (weight) {
     case 250:
       return 1;
@@ -10,14 +11,13 @@ export const calcPriceAccToWeight = (weight) => {
       return 2;
     case 750:
       return 3;
-    case 1:
+    case 1000:
       return 4;
   }
 };
 
 const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
   const [activeCat, setActiveCat] = useState("one");
- 
 
   const addToCart = (card) => {
     setCartProducts((prev) => {
@@ -76,16 +76,15 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                       Rs.{card.price * calcPriceAccToWeight(card.weight)}
                     </p>
                     <select
+                      value={card.weight || 250}
                       onChange={(e) =>
-                        handleWeights(card.id, e.target.value)
+                        handleWeights(card.id, Number(e.target.value))
                       }
                     >
-                      <option selected value={250}>
-                        250gm
-                      </option>
+                      <option value={250}>250gm</option>
                       <option value={500}>500gm</option>
                       <option value={750}>750gm</option>
-                      <option value={1}>1kg</option>
+                      <option value={1000}>1kg</option>
                     </select>
                   </div>
                   {/* <p className='product_desc'>
@@ -105,6 +104,8 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
               </div>
             ))}
         </div>
+
+        <a href = "all-products" className="view-more">View more</a>
       </div>
     </div>
   );

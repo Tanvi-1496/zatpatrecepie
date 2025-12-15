@@ -15,6 +15,10 @@ const Router = () => {
 
   const [cartProducts, setCartProducts] = useState(cart);
 
+  cartOpen
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
+
   const [cards, setCards] = useState([
     {
       id: 1,
