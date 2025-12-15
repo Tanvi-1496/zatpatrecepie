@@ -1,7 +1,54 @@
-*{  
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
-    font-family: "Lilita One", sans-serif;
-    /* background-color: #fff6e7; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lilita One", sans-serif;
+  /* background-color: #fff6e7; */
+}
+
+body {
+  line-height: 1;
+  background: none;
+}
+
+/* Remove list styles */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Remove link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove table spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove form styles */
+button,
+input,
+textarea,
+select {
+  background: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove button styles */
+button {
+  cursor: pointer;
+}
+
+/* Media elements */
+img,
+video {
+  max-width: 100%;
+  display: block;
 }

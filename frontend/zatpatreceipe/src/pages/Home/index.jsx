@@ -5,26 +5,27 @@ import Hero from "../../sections/Home/Hero";
 import Categories from "../../sections/Home/Categories";
 import Spclcategorys from "../../sections/Home/Spclcategorys";
 import Exploremore from "../../sections/Home/Exploremore";
-import Cart from "../../components/Cart";
 
-const Home = () => {
-  const [cartOpen, setCartOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState([]);
+
+const Home = ({
+  cartOpen,
+  setCartOpen,
+  cartProducts,
+  setCartProducts,
+  setCards,
+  cards,
+}) => {
   return (
     <>
       <Nav setCartOpen={setCartOpen} />
-      <Hero/>   
+      <Hero />
       <Exploremore
         setCartOpen={setCartOpen}
         setCartProducts={setCartProducts}
+        setCards={setCards}
+        cards={cards}
       />
-      {cartOpen && (
-        <Cart
-          cartProducts={cartProducts}
-          setCartOpen={setCartOpen}
-          setCartProducts={setCartProducts}
-        />
-      )}
+
       {/* <Categories/>
   <Spclcategorys/> */}
     </>

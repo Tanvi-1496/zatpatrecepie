@@ -1,211 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../../styles/Home/Exploremore/index.css";
-import jelly from "../../../assets/Home/Hero/jelly.png";
 
-const Exploremore = ({ setCartOpen, setCartProducts }) => {
-  const cardContent1 = [
-    {
-      id: 1,
-      img: jelly,
-      title: "jelly",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 2,
-      img: jelly,
-      title: "cake",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 3,
-      img: jelly,
-      title: "Drink",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 4,
-      img: jelly,
-      title: "Donot",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 5,
-      img: jelly,
-      title: "Milkshake",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-  ];
 
-  const cardContent2 = [
-    {
-      id: 1,
-      img: jelly,
-      title: "jelly",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 2,
-      img: jelly,
-      title: "cake",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 3,
-      img: jelly,
-      title: "Drink",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
+export const calcPriceAccToWeight = (weight) => {
+  switch (weight) {
+    case 250:
+      return 1;
+    case 500:
+      return 2;
+    case 750:
+      return 3;
+    case 1:
+      return 4;
+  }
+};
 
-    {
-      id: 5,
-      img: jelly,
-      title: "Milkshake",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 6,
-      img: jelly,
-      title: "Chocolate",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-  ];
+const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
+  const [activeCat, setActiveCat] = useState("one");
+ 
 
-  const cardContent3 = [
-    {
-      id: 2,
-      img: jelly,
-      title: "cake",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 3,
-      img: jelly,
-      title: "Drink",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 4,
-      img: jelly,
-      title: "Donot",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 6,
-      img: jelly,
-      title: "Chocolate",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-  ];
+  const addToCart = (card) => {
+    setCartProducts((prev) => {
+      const exists = prev.find(
+        (p) => p.id === card.id && p.weight === card.weight
+      );
 
-  const cardContent4 = [
-    {
-      id: 1,
-      img: jelly,
-      title: "jelly",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 2,
-      img: jelly,
-      title: "cake",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
+      if (exists) {
+        return prev.map((prod) =>
+          prod.id === card.id && prod.weight === card.weight
+            ? { ...prod, quantity: prod.quantity + 1 }
+            : prod
+        );
+      }
+      return [...prev, { ...card, quantity: 1, weight: card.weight }];
+    });
+  };
 
-    {
-      id: 4,
-      img: jelly,
-      title: "Donot",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 5,
-      img: jelly,
-      title: "Milkshake",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 6,
-      img: jelly,
-      title: "Chocolate",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-  ];
+  const handleWeights = (id, w) => {
+    setCards((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, weight: w } : p))
+    );
+  };
 
-  const cardContent5 = [
-    {
-      id: 1,
-      img: jelly,
-      title: "jelly",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-
-    {
-      id: 3,
-      img: jelly,
-      title: "Drink",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 4,
-      img: jelly,
-      title: "Donot",
-      price: 500,
-      weight: "",
-      description: "sample text",
-    },
-    {
-      id: 5,
-      img: jelly,
-      title: "Milkshake",
-      price: 250,
-      weight: "",
-      description: "sample text",
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="exploremore_container">
       <div className="explore_heading">
@@ -217,9 +53,9 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
             <button
               key={index}
               className={`navigation_btns ${
-                activeIndex === index ? "active" : ""
+                activeCat === label ? "active" : ""
               }`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => setActiveCat(label)}
             >
               {label}
             </button>
@@ -228,52 +64,28 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
         <div className="productss_container">
           {/* {cardContent.map((card) => (
         <div className='card_item'>{card.title}</div>))} */}
-
-          {activeIndex == 0 &&
-            cardContent1.map((card) => (
+          {cards
+            .filter((card) => card.category === activeCat)
+            .map((card) => (
               <div className="product_item">
                 <img src={card.img} className="product_img" alt="jelly image" />
                 <div className="product_content">
                   <p className="product_title">{card.title}</p>
                   <div className="product_price_quantity">
-                    <p className="price">Rs. {card.price}</p>
-                    <select name="quantity" id="quantity">
-                      <option>250gm</option>
-                      <option>500gm</option>
-                      <option>750gm</option>
-                      <option>1kg</option>
-                    </select>
-                  </div>
-                  {/* <p className='product_desc'>
-                   {card.description}
-                  </p> */}
-                  <button
-                    className="addtocart"
-                    onClick={() => { 
-                      setCartOpen(true);
-                      setCartProducts((prev) => [...prev, card]);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <button className="buynow">Buy Now</button>
-                </div>
-              </div>
-            ))}
-
-          {activeIndex == 1 &&
-            cardContent2.map((card) => (
-              <div className="product_item">
-                <img src={card.img} className="product_img" alt="jelly image" />
-                <div className="product_content">
-                  <p className="product_title">{card.title}</p>
-                  <div className="product_price_quantity">
-                    <p className="price">Rs. {card.price}</p>
-                    <select name="quantity" id="quantity">
-                      <option>250gm</option>
-                      <option>500gm</option>
-                      <option>750gm</option>
-                      <option>1kg</option>
+                    <p className="price">
+                      Rs.{card.price * calcPriceAccToWeight(card.weight)}
+                    </p>
+                    <select
+                      onChange={(e) =>
+                        handleWeights(card.id, e.target.value)
+                      }
+                    >
+                      <option selected value={250}>
+                        250gm
+                      </option>
+                      <option value={500}>500gm</option>
+                      <option value={750}>750gm</option>
+                      <option value={1}>1kg</option>
                     </select>
                   </div>
                   {/* <p className='product_desc'>
@@ -283,103 +95,7 @@ const Exploremore = ({ setCartOpen, setCartProducts }) => {
                     className="addtocart"
                     onClick={() => {
                       setCartOpen(true);
-                      setCartProducts((prev) => [...prev, card]);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <button className="buynow">Buy Now</button>
-                </div>
-              </div>
-            ))}
-
-          {activeIndex == 2 &&
-            cardContent3.map((card) => (
-              <div className="product_item">
-                <img src={card.img} className="product_img" alt="jelly image" />
-                <div className="product_content">
-                  <p className="product_title">{card.title}</p>
-                  <div className="product_price_quantity">
-                    <p className="price">Rs. {card.price}</p>
-                    <select name="quantity" id="quantity">
-                      <option>250gm</option>
-                      <option>500gm</option>
-                      <option>750gm</option>
-                      <option>1kg</option>
-                    </select>
-                  </div>
-                  {/* <p className='product_desc'>
-                   {card.description}
-                  </p> */}
-                  <button
-                    className="addtocart"
-                    onClick={() => {
-                      setCartOpen(true);
-                      setCartProducts((prev) => [...prev, card]);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <button className="buynow">Buy Now</button>
-                </div>
-              </div>
-            ))}
-
-          {activeIndex == 3 &&
-            cardContent4.map((card) => (
-              <div className="product_item">
-                <img src={card.img} className="product_img" alt="jelly image" />
-                <div className="product_content">
-                  <p className="product_title">{card.title}</p>
-                  <div className="product_price_quantity">
-                    <p className="price">Rs. {card.price}</p>
-                    <select name="quantity" id="quantity">
-                      <option>250gm</option>
-                      <option>500gm</option>
-                      <option>750gm</option>
-                      <option>1kg</option>
-                    </select>
-                  </div>
-                  {/* <p className='product_desc'>
-                   {card.description}
-                  </p> */}
-                  <button
-                    className="addtocart"
-                    onClick={() => {
-                      setCartOpen(true);
-                      setCartProducts((prev) => [...prev, card]);
-                    }}
-                  >
-                    Add to Cart
-                  </button>
-                  <button className="buynow">Buy Now</button>
-                </div>
-              </div>
-            ))}
-
-          {activeIndex == 4 &&
-            cardContent5.map((card) => (
-              <div className="product_item">
-                <img src={card.img} className="product_img" alt="jelly image" />
-                <div className="product_content">
-                  <p className="product_title">{card.title}</p>
-                  <div className="product_price_quantity">
-                    <p className="price">Rs. {card.price}</p>
-                    <select name="quantity" id="quantity">
-                      <option>250gm</option>
-                      <option>500gm</option>
-                      <option>750gm</option>
-                      <option>1kg</option>
-                    </select>
-                  </div>
-                  {/* <p className='product_desc'>
-                   {card.description}
-                  </p> */}
-                  <button
-                    className="addtocart"
-                    onClick={() => {
-                      setCartOpen(true);
-                      setCartProducts((prev) => [...prev, card]);
+                      addToCart(card);
                     }}
                   >
                     Add to Cart

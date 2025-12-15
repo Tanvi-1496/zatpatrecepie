@@ -1,41 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Cart/index.css";
 import { MdDelete } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa"; // Header icon
 import { BsMinecart } from "react-icons/bs"; // Empty cart icon
+import { calcPriceAccToWeight } from "../../sections/Home/Exploremore";
 
 const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
-  const [quantities, setQuantities] = useState(
-    cartProducts.reduce((acc, product) => {
-      acc[product.id] = 1;
-      return acc;
-    }, {})
-  );
-
-  const increaseQty = (id) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: prev[id] + 1,
-    }));
+  const increQuan = (id, weight) => {
+    setCartProducts((prev) =>
+      prev.map((prod) =>
+        prod.id === id && prod.weight === weight
+          ? { ...prod, quantity: prod.quantity + 1 }
+          : prod
+      )
+    );
   };
 
-  const decreaseQty = (id) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
-    }));
+  const decreQuan = (id, weight) => {
+    setCartProducts((prev) =>
+      prev.map((prod) =>
+        prod.id === id && prod.weight === weight
+          ? {
+              ...prod,
+              quantity:
+                prod.quantity <= 1
+                  ? deleteProd(id, prod.weight)
+                  : prod.quantity - 1,
+            }
+          : prod
+      )
+    );
   };
 
-  const deleteItem = (id) => {
-    if (window.confirm("Are you sure you want to remove this item?")) {
-      setCartProducts((products) => products.filter((p) => p.id !== id));
-    }
+  const deleteProd = (id, weight) => {
+    setCartProducts((prev) =>
+      prev.filter((p) => !(p.id === id && p.weight === weight))
+    );
   };
 
   const subtotal = cartProducts.reduce(
-    (total, p) => total + p.price * quantities[p.id],
+    (total, p) => total + p.price * calcPriceAccToWeight(p.weight) * p.quantity,
     0
   );
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div className="cart_container">
@@ -65,29 +75,34 @@ const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
               <img src={card.img} alt={card.title} className="cart_item_img" />
 
               <div className="cart_item_text">
-                <h3 className="cart_item_title">{card.title}</h3>
+                <h3 className="cart_item_title">
+                  {card.title}{" "}
+                  <span>{`(${
+                    card.weight > 1 ? card.weight + "gm" : card.weight + "kg"
+                  })`}</span>
+                </h3>
                 <p className="cart_item_desc">{card.description}</p>
 
                 <div className="cart_item_quantity">
                   <button
                     className="quantity_btn minus"
-                    onClick={() => decreaseQty(card.id)}
+                    onClick={() => decreQuan(card.id, card.weight)}
                   >
                     -
                   </button>
 
-                  <span className="quantity_value">{quantities[card.id]}</span>
+                  <span className="quantity_value">{card.quantity}</span>
 
                   <button
                     className="quantity_btn plus"
-                    onClick={() => increaseQty(card.id)}
+                    onClick={() => increQuan(card.id, card.weight)}
                   >
                     +
                   </button>
 
                   <button
                     className="quantity_btn plus"
-                    onClick={() => deleteItem(card.id)}
+                    onClick={() => deleteProd(card.id, card.weight)}
                   >
                     <MdDelete />
                   </button>
@@ -95,7 +110,8 @@ const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
               </div>
 
               <div className="cart_item_price">
-                ₹{card.price * quantities[card.id]}
+                ₹
+                {card.price * calcPriceAccToWeight(card.weight) * card.quantity}
               </div>
             </div>
           </div>
