@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../pages/NotFound";
+import Exploremore from "../sections/Home/Exploremore";
 import AllProducts from "../pages/AllProducts";
 import jelly from "../assets/Home/Hero/jelly.png";
 import Cart from "../components/Cart";

@@ -19,7 +19,7 @@ const Hero = () => {
         <p className='hero_content_para'>Crispy, Crunchy, Veggie Deliciousness!</p>
         <h1 className='hero_content_heading'> Burgers That <br/>Love the Earth!</h1>
        <div className='hero_buttons'>
-        <button className='hero_serve'>Explore More</button>
+        <button className='hero_cta'>Explore More</button>
         <button className='hero_playbtn'>
           <TbPlayerTrackNextFilled className='hero_playicon' />
           
