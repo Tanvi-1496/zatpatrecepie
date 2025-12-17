@@ -66,7 +66,9 @@ const AllProducts = ({
               <div
                 className="product_item"
                 key={card.id}
-                onClick={() => navigate(`/product/${card.id}`)}
+                onClick={() =>
+                  navigate(`/product/${card.id + "/" + card.category}`)
+                }
               >
                 <img src={card.img} className="product_img" alt={card.title} />
 
