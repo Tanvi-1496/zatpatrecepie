@@ -1,4 +1,5 @@
 /* MAIN CONTAINER */
+
 .products {
   width: 100%;
   max-width: 1310px;
@@ -7,6 +8,35 @@
   grid-template-columns: 220px 1fr;
   gap: 30px;
   padding: 0 16px;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    gap: 0;
+  }
+}
+
+.products_heading {
+  width: 100%;
+  font-size: 50px;
+  margin-top: 90px;
+  text-align: center;
+  color: #e53c27;
+
+  @media (max-width: 768px) {
+   display: none;
+  }
+}
+
+
+.products_heading.--productsMobile {
+  
+  display: none;
+
+  @media (max-width: 768px) {
+   display: flex;
+   margin-block: 40px;
+   font-size: 40px;
+  }
 }
 
 /* CATEGORY SIDEBAR */
@@ -19,6 +49,15 @@
   position: sticky;
   top: 90px;
   height: fit-content;
+
+  @media (max-width: 768px) {
+    top: 0;
+    background-color: #ffa810;
+    left: 0;
+    right: 0;
+    margin-left: -16px;
+    width: calc(100% + 32px);
+  }
 }
 
 /* CATEGORY BUTTON */
@@ -27,21 +66,30 @@
   font-size: 16px;
   text-align: left;
   background: transparent;
-  border: 1px solid #ddd;
+  border: 1px solid #e53c27;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    color: #fff;
+  }
 }
 
 .products_cat:hover {
-  background: #000;
-  color: #fff;
+  background: #ff5039;
+  color: white;
 }
 
 /* ACTIVE CATEGORY (optional if you add class) */
 .products_cat.active {
-  background: #000;
+  background: #e53c27;
   color: #fff;
+
+  @media (max-width: 768px) {
+    border: 1px solid #ffa810;
+  }
 }
 
 /* PRODUCTS GRID */
@@ -61,6 +109,7 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 /* .product_item:hover {
@@ -122,22 +171,22 @@ select {
 }
 
 .addtocart {
-  background: #000;
+  background: #ffa810;
   color: #fff;
   border: none;
 }
 
 .addtocart:hover {
-  background: #333;
+  background: #ffba43;
 }
 
 .buynow {
-  background: black;
-  border: 1px solid #000;
+  background: #ffa810;
+  border: 1px solid #ffa810;
 }
 
 .buynow:hover {
-  background: #000;
+  background: #ffba43;
   color: #fff;
 }
 
@@ -152,6 +201,7 @@ select {
     overflow-x: auto;
     border-right: none;
     border-bottom: 1px solid #e5e5e5;
+    scrollbar-width: none;
   }
 
   .products_cat {

@@ -1,163 +1,154 @@
-.hero_container{
-    width:100%;
-    height: 90dvh;
-    max-width: 1310px;
-    margin: 30px auto;
-    display: flex;
-    justify-content: space-between;
+.hero {
+  width: 100%;
+  max-width: 1280px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding-inline: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
     align-items: center;
-    padding: 0 20px;
-    /* background-color: #fff6e7; */
-    
+    text-align: center;
+    margin-block: 40px;
+  }
 }
 
-.hero_content {
+.hero_heading {
+  font-size: 65px;
+  color: #e53c27;
+  letter-spacing: 0.2px;
+
+  @media (max-width: 768px) {
+    font-size: 45px;
+  }
+}
+
+.hero_subheading {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  font-weight: 500;
+  font-size: 18px;
   width: 100%;
-  flex: 1;
+  max-width: 600px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 45px;
+   margin-inline: auto;
+  }
+}
+
+.hero_orderNow {
+  background-color: #ffa810;
+  padding: 15px 20px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.hero_about {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    margin-top: 65px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    justify-content: center;
+  }
+}
+
+.hero_aboutList {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  animation: contentFadeUp 0.9s ease forwards;
-}
-.hero_content_first_line{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-  width: 100%;
 }
 
-.hero_content_para{
-  color: darkorange;
-  font-size: 30px;
-  margin-bottom: 10px;
+.hero_aboutList-title {
+  font-weight: 500;
+  font-size: 18px;
+  color: #7a7a7a;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 16px;
+    text-align: left;
+    min-height: 44px;
+  }
 }
 
-.hero_content_heading {
-  font-size: clamp(42px, 6vw, 62px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 2px;
-  color: #240046;
-  margin-bottom: 30px;
-  animation: textSlide 0.9s ease forwards;
+.hero_aboutList-desc {
+  margin-top: 12px;
+  color: #e53c27;
+  font-weight: 700;
+  font-size: 36px;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 30px;
+    text-align: left;
+  }
 }
 
-.hero_serve {
-  background: #ffffff;
-  padding: 16px 26px;
-  border-radius: 10px;
-  border: 1px solid #240046;
-  font-weight: 600;
-  color: #240046;
-  box-shadow: 0 8px 18px rgba(36, 0, 70, 0.15);
-  animation: fadeIn 0.6s ease forwards;
+.plus {
+  color: #ffa810;
 }
 
-
-.hero_buttons {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-/* CTA */
-.hero_cta {
-  background: linear-gradient(
-    135deg,
-    #ff6d00,
-    #ff9100,
-    #ff9e00
-  );
-  color: white;
-  padding: 14px 32px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero_cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(255, 109, 0, 0.45);
-}
-.hero_playbtn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 2px solid #9d4edd;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.hero_playbtn:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 10px 25px rgba(157, 78, 221, 0.4);
-}
-
-.hero_playicon {
-  font-size: 22px;
-  color: #5a189a;
-}
-.hero_image{
-  flex: 1;
-}
-.hero_image_blob{
-  height: 75%;
-  width: 40%;
-  position: absolute;
-  top:80px;
-  right:0%;
-  z-index: 1;
-
-}
-.hero_image_jelly {
-  width: 80%;
+.hero_carousal {
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
   position: relative;
-  left: 10%;
-  z-index: 2;
-  animation: floatJelly 3.2s ease-in-out infinite;
-  filter: drop-shadow(0 30px 40px rgba(36, 0, 70, 0.3));
-}
 
-/* ================= ANIMATIONS ================= */
-
-@keyframes contentFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
+  @media (max-width: 1024px) {
+    display: none;
+    margin-top: 60px;
+    height: 400px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  @media (max-width: 768px) {
+    display: none;
+    height: 300px;
+    margin-top: 20px;
   }
 }
 
-@keyframes textSlide {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.hero_carousal-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.floatWrap {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatImg 3.2s ease-in-out infinite;
 }
 
-@keyframes floatJelly {
+.hero_carousal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes floatImg {
   0% {
     transform: translateY(0);
   }
@@ -169,25 +160,37 @@
   }
 }
 
-/* ================= RESPONSIVE ================= */
+.hero_carousal.--mobile {
+  display: none;
 
-@media (max-width: 768px) {
-  .hero_container {
-    flex-direction: column;
-    text-align: center;
+  @media (max-width: 1024px) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 
-  .hero_content {
+  @media (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 270px;
+    margin: 30px auto;
+    margin-bottom: 0;
+    justify-content: center;
     align-items: center;
-  }
-
-  .hero_buttons {
-    gap: 25px;
-  }
-
-  .hero_image_jelly {
-    width: 90%;
-    left: 0;
   }
 }
 
+@media (max-width: 768px) {
+  .hero_carousal.--mobile .hero_carousal-track {
+    width: 100%;
+  }
+
+  .hero_carousal.--mobile .floatWrap {
+    min-width: 100%;
+  }
+
+  .hero_carousal.--mobile .hero_carousal-img {
+    max-width: 280px; /* 👈 key line */
+    height: auto;
+  }
+}

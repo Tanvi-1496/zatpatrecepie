@@ -1,0 +1,145 @@
+.prod {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+.prod_productDetails {
+  margin-top: 100px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+    align-items: unset;
+    margin-top: 90px;
+  }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+}
+
+.prod_productDetails-imgCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.prod_productDetails-img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  justify-self: center;
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 20px;
+
+  @media (max-width: 650px) {
+    max-width: unset;
+  }
+}
+
+.prod_productDetails-detail {
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.prod_productDetails-heading {
+  font-weight: 600;
+  font-size: 50px;
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 30px;
+  }
+}
+
+.price {
+  font-size: 24px;
+
+  @media (max-width: 650px) {
+    font-size: 20px;
+  }
+}
+
+.prod_productDetails-desc {
+  margin-top: 20px;
+  font-size: 20x;
+  color: grey;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 16px;
+  }
+}
+
+.prod_productDetails-priceQuantity {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addtocart {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.prod_relatedProds {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.prod_related {
+  margin-top: 80px;
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.addtocart,
+.buynow {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  @media (max-width: 650px) {
+    display: block;
+  }
+}
+
+.addtocart.--mobileBtn,
+.buynow.--mobileBtn {
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
+  }
+}

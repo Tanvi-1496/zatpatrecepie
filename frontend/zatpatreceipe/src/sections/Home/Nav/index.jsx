@@ -1,59 +1,65 @@
-import React,{useState} from 'react'
-import logo from '../../../assets/Home/Nav/logo.png'
-import "../../../styles/Home/Nav/index.css"
-import { BsCartDash } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
+import React, { useState } from "react";
+import logo from "../../../assets/Home/Nav/logo.png";
+import "../../../styles/Home/Nav/index.css";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { GiHamburger } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
-
 
 const Nav = ({ setCartOpen }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  mobileMenuOpen
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
+
   return (
     <nav className="navbar">
-      <img src={logo} alt="Zatpat Recipe Logo" className="navbar_logo" />
-      <div className="navbar_linksContainer">
-        <a className="navbar_links" href="#home">
+      <img src={logo} className="navbar_logo" />
+      <div className="navlinks_container">
+        <a href="#" className="navlinks">
           Home
         </a>
-        <a className="navbar_links" href="/about-us">
-          About
+        <a href="#" className="navlinks">
+          About us
         </a>
-        <a className="navbar_links" href="#contact">
-          Contact
+        <a href="#" className="navlinks">
+          Contact us
         </a>
-        <button className="navbar_button" onClick={() => setCartOpen(true)}>
-          <BsCartDash />
+      </div>
+      <div className="navbar_btns">
+        <button className="navbar_cart">
+          <IoFastFoodOutline />
         </button>
-        <button
-          className="navbar_hamburger"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          <GiHamburgerMenu />
+        <button className="navbar_menu" onClick={() => setMobileMenuOpen(true)}>
+          <GiHamburger />
         </button>
       </div>
 
-      <div
-        className={`navbar_mobile ${mobileMenuOpen ? "showMobileMenu" : ""}`}
-      >
-        <button
-          className="navbar_mobile_close"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <RxCross1 />
-        </button>
-        <a className="navbar_links" href="#home">
-          Home
-        </a>
-        <a className="navbar_links" href="#about">
-          About
-        </a>
-        <a className="navbar_links" href="#contact">
-          Contact
-        </a>
-      </div>
+      {mobileMenuOpen && (
+        <div className="navbar_mobile-menu">
+          <div className="navbar_mobile-header">
+            <button
+              className="navbar_mobile-close"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <RxCross1 />
+            </button>
+          </div>
+          <div className="navbar_mobile-navlinks">
+            <a href="#" className="navlinks-mobile">
+              Home
+            </a>
+            <a href="#" className="navlinks-mobile">
+              About us
+            </a>
+            <a href="#" className="navlinks-mobile">
+              Contact us
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
 
-export default Nav
+export default Nav;

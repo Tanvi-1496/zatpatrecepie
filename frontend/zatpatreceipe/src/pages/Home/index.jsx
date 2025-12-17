@@ -6,7 +6,6 @@ import Categories from "../../sections/Home/Categories";
 import Spclcategorys from "../../sections/Home/Spclcategorys";
 import Exploremore from "../../sections/Home/Exploremore";
 
-
 const Home = ({
   cartOpen,
   setCartOpen,

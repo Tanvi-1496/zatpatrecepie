@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../styles/Home/Exploremore/index.css";
+import { useNavigate } from "react-router-dom";
 
 export const calcPriceAccToWeight = (weight) => {
   console.log(weight);
@@ -18,8 +19,10 @@ export const calcPriceAccToWeight = (weight) => {
 
 const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
   const [activeCat, setActiveCat] = useState("one");
+  const navigate = useNavigate();
 
   const addToCart = (card) => {
+
     setCartProducts((prev) => {
       const exists = prev.find(
         (p) => p.id === card.id && p.weight === card.weight
@@ -67,7 +70,10 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
           {cards
             .filter((card) => card.category === activeCat)
             .map((card) => (
-              <div className="product_item">
+              <div
+                className="product_item"
+                onClick={() => navigate(`/product/${card.id + "/" + card.category}`)}
+              >
                 <img src={card.img} className="product_img" alt="jelly image" />
                 <div className="product_content">
                   <p className="product_title">{card.title}</p>
@@ -88,11 +94,12 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                     </select>
                   </div>
                   {/* <p className='product_desc'>
-                   {card.description}
-                  </p> */}
+                    {card.description}
+                    </p> */}
                   <button
                     className="addtocart"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       setCartOpen(true);
                       addToCart(card);
                     }}
@@ -105,7 +112,9 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
             ))}
         </div>
 
-        <a href = "all-products" className="view-more">View more</a>
+        <a href="all-products" className="view-more">
+          View more
+        </a>
       </div>
     </div>
   );
