@@ -1,0 +1,65 @@
+.notfound-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7f2;
+  padding: 20px;
+}
+
+.notfound-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.notfound-code {
+  font-size: 72px;
+  font-weight: 700;
+  color: #e53c27; /* food theme */
+  margin: 0;
+}
+
+.notfound-title {
+  font-size: 24px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.notfound-text {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+.notfound-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.notfound-home{
+    background-color: #e53c27;
+    color: white;
+    font-weight: 500;
+    padding: 15px 20px;
+    border-radius: 12px;
+
+}

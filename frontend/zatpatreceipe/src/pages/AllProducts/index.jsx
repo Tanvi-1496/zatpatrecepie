@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "../../styles/AllProducts/index.css";
 import { calcPriceAccToWeight } from "../../sections/Home/Exploremore";
 import { useNavigate } from "react-router-dom";
+import Nav from "../../components/Nav";
+import Footer from "../../components/Footer";
+
 
 const AllProducts = ({
   cards,
@@ -41,6 +44,7 @@ const AllProducts = ({
 
   return (
     <div className="productsContainer">
+      <Nav setCartOpen={setCartOpen} />
       <h1 className="products_heading">All Products</h1>
       <div className="products">
         {/* LEFT SIDEBAR */}
@@ -107,6 +111,7 @@ const AllProducts = ({
             ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

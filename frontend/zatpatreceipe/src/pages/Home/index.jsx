@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/Home/index.css";
-import Nav from "../../sections/Home/Nav";
+import Nav from "../../components/Nav";
 import Hero from "../../sections/Home/Hero";
 import Categories from "../../sections/Home/Categories";
 import Spclcategorys from "../../sections/Home/Spclcategorys";
 import Exploremore from "../../sections/Home/Exploremore";
+import Footer from "../../components/Footer";
 
 const Home = ({
   cartOpen,
@@ -26,6 +27,7 @@ const Home = ({
       />
       {/* <Categories/>
   <Spclcategorys/> */}
+    <Footer/>
     </>
   );
 };

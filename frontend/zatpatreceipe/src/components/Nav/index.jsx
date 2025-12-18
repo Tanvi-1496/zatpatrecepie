@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "../../../assets/Home/Nav/logo.png";
-import "../../../styles/Home/Nav/index.css";
+import logo from "../../assets/Home/Nav/logo.png";
+import "../../styles/Home/Nav/index.css";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { GiHamburger } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
@@ -16,10 +16,10 @@ const Nav = ({ setCartOpen }) => {
     <nav className="navbar">
       <img src={logo} className="navbar_logo" />
       <div className="navlinks_container">
-        <a href="#" className="navlinks">
+        <a href="/" className="navlinks">
           Home
         </a>
-        <a href="#" className="navlinks">
+        <a href="about-us" className="navlinks">
           About us
         </a>
         <a href="#" className="navlinks">
@@ -28,7 +28,7 @@ const Nav = ({ setCartOpen }) => {
       </div>
       <div className="navbar_btns">
         <button className="navbar_cart">
-          <IoFastFoodOutline />
+          <IoFastFoodOutline onClick={() => setCartOpen(true)} />
         </button>
         <button className="navbar_menu" onClick={() => setMobileMenuOpen(true)}>
           <GiHamburger />
@@ -46,10 +46,10 @@ const Nav = ({ setCartOpen }) => {
             </button>
           </div>
           <div className="navbar_mobile-navlinks">
-            <a href="#" className="navlinks-mobile">
+            <a href="/" className="navlinks-mobile">
               Home
             </a>
-            <a href="#" className="navlinks-mobile">
+            <a href="about-us" className="navlinks-mobile">
               About us
             </a>
             <a href="#" className="navlinks-mobile">

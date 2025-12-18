@@ -81,7 +81,6 @@ const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
                     card.weight > 1 ? card.weight + "gm" : card.weight + "kg"
                   })`}</span>
                 </h3>
-                <p className="cart_item_desc">{card.description}</p>
 
                 <div className="cart_item_quantity">
                   <button

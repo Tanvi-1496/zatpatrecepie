@@ -1,0 +1,39 @@
+.footer_cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: #e53c27;
+  color: white;
+  position: relative;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
+
+.footer_buttons{
+    margin-top: 20px;
+}
+
+.footer_buttons button {
+
+  margin: 10px;
+  padding: 12px 25px;
+  background: #ffa810;
+  color: #240046;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.footer_buttons button:hover {
+  background: #ffba43;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .features_section {
+    flex-direction: column;
+  }
+  .reviews_grid {
+    flex-direction: column;
+  }
+}

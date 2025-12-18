@@ -1,9 +1,12 @@
 import React from "react";
 import "../../styles/AboutUs/index.css";
+import Footer from "../../components/Footer";
+import Nav from "../../components/Nav";
 
-const AboutUs = () => {
+const AboutUs = ({setCartOpen={setCartOpen}}) => {
   return (
     <div className="aboutus_container">
+      <Nav setCartOpen={setCartOpen}/>
       <section className="hero_section">
         <div className="hero_blob">
           <h1>Zatpatrecepie</h1>
@@ -118,15 +121,7 @@ const AboutUs = () => {
       </section>
 
       {/* FOOTER CTA */}
-      <section className="footer_cta">
-        <h2>Follow Us For Daily Food Inspiration</h2>
-        <div className="footer_buttons">
-          <button>Instagram</button>
-          <button>YouTube</button>
-          <button>Facebook</button>
-          <button>Email Newsletter</button>
-        </div>
-      </section>
+      <Footer />
     </div>
   );
 };

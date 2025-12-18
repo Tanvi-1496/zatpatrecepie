@@ -208,37 +208,4 @@
   background: #FF9E00;
 }
 
-/* FOOTER CTA */
-.footer_cta {
-  text-align: center;
-  padding: 80px 20px;
-  background: #240046; 
-  color: white;
-  position: relative;
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%;
-}
-.footer_buttons button {
-  margin: 10px;
-  padding: 12px 25px;
-  background: #FF9E00;
-  color: #240046;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.footer_buttons button:hover {
-  background: #FF9100;
-}
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .features_section {
-    flex-direction: column;
-  }
-  .reviews_grid {
-    flex-direction: column;
-  }
-}

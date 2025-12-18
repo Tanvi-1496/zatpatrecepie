@@ -272,7 +272,7 @@ const Router = () => {
             />
           }
         />
-        <Route path="about-us" element={<About />} />
+        <Route path="about-us" element={<About setCartOpen={setCartOpen} />} />
         <Route
           path="all-products"
           element={
