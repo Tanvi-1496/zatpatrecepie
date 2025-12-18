@@ -9,6 +9,9 @@ import jelly from "../assets/Home/Hero/jelly.png";
 import Cart from "../components/Cart";
 import Product from "../pages/Product";
 import PersonalDetails from "../pages/PersonalDetails";
+import OrderSum from "../pages/OrderSum";
+import Payment from "../pages/Payment";
+import Completion from "../pages/Completion";
 
 const Router = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -311,6 +314,9 @@ const Router = () => {
           }
         />
         <Route path="personal-details" element={<PersonalDetails />} />
+        <Route path="order-summary" element={<OrderSum cart={cart} />} />
+        <Route path="payment" element={<Payment />} />
+        <Route path="completion" element={<Completion />} />
 
         <Route
           path="product/:id/:cat"

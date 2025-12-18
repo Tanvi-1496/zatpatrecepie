@@ -1,0 +1,118 @@
+.payment {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff5f2, #ffffff);
+  padding: 20px;
+}
+
+/* Card */
+.payment-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px 28px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.payment-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+.payment-total{
+
+    font-weight: 600;
+    font-size: 28px;
+    margin-block: 14px;
+
+}
+
+.payment-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* QR */
+.payment-qr {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin: 20px auto;
+  border-radius: 12px;
+  border: 1px dashed #e53c27;
+  padding: 10px;
+}
+
+/* Input */
+.payment-label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.payment-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+
+.payment-input:focus {
+  border-color: #e53c27;
+  box-shadow: 0 0 0 2px rgba(229, 60, 39, 0.15);
+}
+
+/* Button */
+.payment-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #e53c27;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 12px;
+}
+
+.payment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(229, 60, 39, 0.35);
+}
+
+/* Note */
+.payment-note {
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 14px;
+}
+
+.payment-error {
+  color: #e53c27;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.input-error {
+  border-color: #e53c27;
+  box-shadow: 0 0 0 2px rgba(229, 60, 39, 0.15);
+}
+

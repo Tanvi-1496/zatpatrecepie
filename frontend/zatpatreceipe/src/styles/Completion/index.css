@@ -1,0 +1,30 @@
+
+
+.completion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100dvh;
+    flex-direction: column;
+    gap: 25px
+}
+
+.completion_icon{
+    font-size: 58px;
+    color: #e53c27;
+}
+
+.completion_text{
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+}
+
+.completion_btn{
+    background-color: #e53c27;
+    padding: 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+}
