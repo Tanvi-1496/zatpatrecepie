@@ -4,8 +4,12 @@ import { MdDelete } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa"; // Header icon
 import { BsMinecart } from "react-icons/bs"; // Empty cart icon
 import { calcPriceAccToWeight } from "../../sections/Home/Exploremore";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
+
+  const navigate = useNavigate()
+
   const increQuan = (id, weight) => {
     setCartProducts((prev) =>
       prev.map((prod) =>
@@ -125,7 +129,7 @@ const Cart = ({ cartProducts, setCartOpen, setCartProducts }) => {
               <span>₹{subtotal}</span>
             </div>
 
-            <button className="cart_footer_btn">Proceed to Checkout</button>
+            <button className="cart_footer_btn" onClick={() => {setCartOpen(false); navigate("/personal-details")}}>Proceed to Checkout</button>
           </div>
         </div>
       )}

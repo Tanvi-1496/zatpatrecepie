@@ -36,7 +36,6 @@ input,
 textarea,
 select {
   background: none;
-  border: none;
   outline: none;
   font: inherit;
   color: inherit;
@@ -46,6 +45,7 @@ select {
 button {
   cursor: pointer;
   outline: none;
+  border: none;
 }
 
 /* Media elements */
