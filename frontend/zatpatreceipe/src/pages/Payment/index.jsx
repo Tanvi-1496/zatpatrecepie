@@ -22,22 +22,29 @@ const Payment = () => {
     }
 
     try {
+      const filteredProducts = cart.map(
+        ({ id, img, description, ...rest }) => rest
+      );
+
+      console.log(filteredProducts);
+
       const response = await axios.post("http://localhost:5000/orders", {
         total,
-        cart,
+        filteredProducts,
         address,
         transactionID: txnId,
       });
 
-      console.log(response);
-      
+      if (response.data.success) {
+        navigate("/completion");
+      }
 
+      console.log(response);
     } catch (err) {
       console.error(err);
     }
 
     setError("");
-    navigate("/completion");
   };
 
   return (
