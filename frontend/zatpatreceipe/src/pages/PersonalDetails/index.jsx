@@ -207,6 +207,7 @@ const PersonalDetails = () => {
                   )
                 );
                 setFormVisible(false);
+                setEdit(false)
               }}
             >
               update adddress
