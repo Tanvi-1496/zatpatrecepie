@@ -16,6 +16,8 @@ const PersonalDetails = () => {
 
   const [errors, setErrors] = useState({});
   const [formVisible, setFormVisible] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [addressInd, setAddressInd] = useState(null);
 
   const [address, setAddress] = useState(() => {
     const stored = localStorage.getItem("address");
@@ -98,6 +100,8 @@ const PersonalDetails = () => {
                       address: add.address,
                       pincode: add.pincode,
                     });
+                    setAddressInd(index);
+                    setEdit(true);
                   }}
                 >
                   <CiEdit />
@@ -184,9 +188,34 @@ const PersonalDetails = () => {
             {errors.pincode && <span className="error">{errors.pincode}</span>}
           </div>
 
-          <button className="personal-details_formBtn" type="submit">
-            Proceed
-          </button>
+          {edit === true ? (
+            <button
+              className="address-new"
+              onClick={(e) => {
+                e.preventDefault();
+                setAddress((prev) =>
+                  prev.map((p, i) =>
+                    i === addressInd
+                      ? {
+                          ...p,
+                          name: form.name,
+                          phone: form.phone,
+                          address: form.address,
+                          pincode: form.pincode,
+                        }
+                      : p
+                  )
+                );
+                setFormVisible(false);
+              }}
+            >
+              update adddress
+            </button>
+          ) : (
+            <button className="personal-details_formBtn" type="submit">
+              Proceed
+            </button>
+          )}
         </form>
       )}
     </section>

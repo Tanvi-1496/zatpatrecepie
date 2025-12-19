@@ -8,7 +8,7 @@ const Completion = () => {
       <div className="completion_icon">
         <GiCakeSlice />
       </div>
-      <p className="completion_text">Your payment is under review!!!</p>
+      <p className="completion_text">Your order has been placed!!!</p>
       <a className="completion_btn" href = "/">View other products</a>
     </section>
   );
