@@ -73,7 +73,9 @@ const OrderSum = ({ cart }) => {
 
         <button className="place-order-btn" onClick={() => navigate("/payment", {
           state: {
-            total : totalAmount
+            total : totalAmount,
+            address: address,
+            cart: cart
           }
         })}  >Place Order</button>
       </div>

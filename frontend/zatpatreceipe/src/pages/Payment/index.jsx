@@ -2,20 +2,38 @@ import React, { useState } from "react";
 import "../../styles/Payment/index.css";
 import QR from "../../assets/Payment/qr.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Payment = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const total = location.state?.total;
+  const address = location.state?.address;
+  const cart = location.state?.cart;
 
   const [txnId, setTxnId] = useState("");
   const [error, setError] = useState("");
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     if (!txnId.trim()) {
       setError("Transaction ID is required");
       return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:5000/orders", {
+        total,
+        cart,
+        address,
+        transactionID: txnId,
+      });
+
+      console.log(response);
+      
+
+    } catch (err) {
+      console.error(err);
     }
 
     setError("");
