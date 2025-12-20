@@ -12,6 +12,9 @@ import PersonalDetails from "../pages/PersonalDetails";
 import OrderSum from "../pages/OrderSum";
 import Payment from "../pages/Payment";
 import Completion from "../pages/Completion";
+import Signup from "../pages/Admin/Signup";
+import Login from "../pages/Admin/Login";
+import Dashboard from "../pages/Admin/Dashboard";
 
 const Router = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -331,6 +334,10 @@ const Router = () => {
             />
           }
         />
+
+        <Route path="myadmin-signup" element={<Signup /> } />
+        <Route path="myadmin-login" element={<Login /> } />
+        <Route path="admin-dashboard" element={<Dashboard /> } />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

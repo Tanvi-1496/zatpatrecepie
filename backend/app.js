@@ -21,8 +21,13 @@ app.use(express.urlencoded({ limit: "20mb", extended: true }));
 
 const orders = require("./routes/orders")
 
+const adminSignup = require("./routes/admin-signup");
+const adminLogin = require("./routes/admin-login");
+
 
 app.use("/",orders)
+app.use("/",adminSignup)
+app.use("/",adminLogin)
 
 
 app.listen(port, () => {

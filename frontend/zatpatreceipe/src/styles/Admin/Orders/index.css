@@ -1,0 +1,39 @@
+/* Order.css */
+.orders-page {
+  padding: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 80px;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.orders-table th {
+  background-color: #1f2933;
+  color: white;
+  cursor: pointer;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.order-items {
+  padding-left: 15px;
+}
+
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
