@@ -12,7 +12,6 @@ const allowedOrigins = {
   methods: ["GET", "POST"],
 };
 
-const connectDB = require("./DB/connect.js");
 
 app.use(cors(allowedOrigins));
 

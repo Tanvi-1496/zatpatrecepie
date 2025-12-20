@@ -119,8 +119,8 @@
   font-size: 30px;
 }
 
-.addtocart,
-.buynow {
+.addtocart.--desktopBtn,
+.buynow.--desktopBtn {
   @media (max-width: 1024px) {
     display: none;
   }

@@ -77,7 +77,7 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
               </div>
 
               <button
-                className="addtocart"
+                className="addtocart --desktopBtn"
                 onClick={(e) => {
                   e.stopPropagation();
                   setCartOpen(true);
@@ -87,7 +87,7 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                 Add to Cart
               </button>
 
-              <button className="buynow">Buy Now</button>
+              <button className="buynow --desktopBtn">Buy Now</button>
             </div>
           </div>
         ))}

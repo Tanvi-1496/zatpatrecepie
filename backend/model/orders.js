@@ -1,4 +1,4 @@
-const db = require("../DB/connect");
+const supabase = require('../config')
 
 const customerOrdersModel = async (
   total,
@@ -6,23 +6,27 @@ const customerOrdersModel = async (
   address,
   transactionID
 ) => {
-  const query = `
-    INSERT INTO song_order
-    (cust_name, address, number, pincode, transactionID, orders, amount)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `;
+  const { data, error } = await supabase
+    .from("orders")
+    .insert([
+      {
+        cust_name: address.name,
+        address: address.address,
+        number: address.phone,
+        pincode: address.pincode,
+        transactionID: transactionID,
+        order: filteredProducts, 
+        amount: total,
+      },
+    ])
+    .select();
 
-  const [rows] = await db.execute(query, [
-    address.name,
-    address.address,
-    address.phone,
-    address.pincode,
-    transactionID,
-    JSON.stringify(filteredProducts), // store as JSON
-    total,
-  ]);
+  if (error) {
+    throw error;
+  }
 
-  return rows;
+  return data;
 };
+
 
 module.exports = { customerOrdersModel };
