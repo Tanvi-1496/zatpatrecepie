@@ -23,7 +23,7 @@
 .sidebar-link {
   text-decoration: none;
   color: #d1d5db;
-  padding: 10px;
+
   /* margin-top: 15px; */
   border-radius: 6px;
   transition: all 0.3s ease;
@@ -39,4 +39,12 @@
   background-color: #e53c27;
   color: #fff;
   font-weight: bold;
+  padding: 10px;
+}
+
+.sidebar-logout {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+  gap: 15px;
 }

@@ -47,7 +47,8 @@ const Login = () => {
       });
 
       if (response.data.success) {
-        navigate("/admin-dashboard")
+        localStorage.setItem("adminToken", response.data.token);
+        navigate("/admin-dashboard/orders")
       }
 
       console.log(response);

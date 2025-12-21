@@ -1,12 +1,11 @@
-// adminController.js
 const bcrypt = require("bcrypt");
-const supabase = require('../config')
+const jwt = require("jsonwebtoken");
+const supabase = require("../config");
 
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 1. Validation
     if (!email || !password) {
       return res.status(400).json({
         success: false,
@@ -14,21 +13,19 @@ const adminLogin = async (req, res) => {
       });
     }
 
-    // 2. Fetch admin
     const { data: admin, error } = await supabase
       .from("admin_details")
       .select("*")
       .eq("email", email)
-      .single();
+      .maybeSingle();
 
-    if (error || !admin) {
+    if (!admin || error) {
       return res.status(401).json({
         success: false,
         message: "Invalid email or password",
       });
     }
 
-    // 3. Compare password
     const isPasswordMatch = await bcrypt.compare(password, admin.password);
 
     if (!isPasswordMatch) {
@@ -38,14 +35,17 @@ const adminLogin = async (req, res) => {
       });
     }
 
-    // 4. Login success (no token)
+    // ✅ Create JWT
+    const token = jwt.sign(
+      { adminId: admin.id, email: admin.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
     return res.status(200).json({
       success: true,
       message: "Admin login successful",
-      admin: {
-        id: admin.id,
-        email: admin.email,
-      },
+      token,
     });
   } catch (e) {
     return res.status(500).json({

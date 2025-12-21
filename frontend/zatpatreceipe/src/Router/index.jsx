@@ -15,6 +15,10 @@ import Completion from "../pages/Completion";
 import Signup from "../pages/Admin/Signup";
 import Login from "../pages/Admin/Login";
 import Dashboard from "../pages/Admin/Dashboard";
+import Order from "../pages/Admin/Order";
+import Orders from "../pages/Admin/Orders";
+import AddProduct from "../pages/Admin/AddProduct";
+import ProtectedRoute from "./ProtectRoute";
 
 const Router = () => {
   const [cartOpen, setCartOpen] = useState(false);
@@ -335,9 +339,20 @@ const Router = () => {
           }
         />
 
-        <Route path="myadmin-signup" element={<Signup /> } />
-        <Route path="myadmin-login" element={<Login /> } />
-        <Route path="admin-dashboard" element={<Dashboard /> } />
+        <Route path="myadmin-signup" element={<Signup />} />
+        <Route path="myadmin-login" element={<Login />} />
+        <Route
+          path="admin-dashboard/*"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="orders" element={<Orders />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="order/:id" element={<Order />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
