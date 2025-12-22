@@ -51,7 +51,7 @@ const AllProducts = ({
 
   return (
     <div className="productsContainer">
-      <Nav setCartOpen={setCartOpen} />
+      <Nav setCartOpen={setCartOpen} cartProducts = {cartProducts} />
       <h1 className="products_heading">All Products</h1>
       <div className="products">
         {/* LEFT SIDEBAR */}
