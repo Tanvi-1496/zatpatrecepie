@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "../../../styles/Admin/Signup/index.css";
 import axios from "axios";
+import Loader from "../../../components/Loader";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const Signup = () => {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,6 +32,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!formData.email || !formData.password || !formData.confirmPassword) {
       setError("All fields are required");
@@ -66,16 +69,20 @@ const Signup = () => {
       if (response.data.success) {
         alert("Admin registered successfully!");
       }
-
     } catch (err) {
       alert(err.response.data.message);
+    } finally {
+      setLoading(false);
     }
 
     setError("");
 
     console.log("Admin Signup Data:", formData);
-
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="signup">

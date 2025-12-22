@@ -3,6 +3,7 @@ import React, { use, useState } from "react";
 import "../../../styles/Admin/Login/index.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../components/Loader";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,10 +11,12 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,6 +29,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!formData.email || !formData.password) {
       setError("All fields are required");
@@ -39,7 +43,6 @@ const Login = () => {
       return;
     }
 
-
     try {
       const response = await axios.post("http://localhost:5000/admin-login", {
         email: formData.email,
@@ -48,18 +51,24 @@ const Login = () => {
 
       if (response.data.success) {
         localStorage.setItem("adminToken", response.data.token);
-        navigate("/admin-dashboard/orders")
+        navigate("/admin-dashboard/orders");
       }
 
       console.log(response);
     } catch (err) {
       alert(err.response.data.message);
+    } finally {
+      setLoading(false);
     }
 
     setError("");
 
     // TODO: Call backend API to authenticate admin
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="login">

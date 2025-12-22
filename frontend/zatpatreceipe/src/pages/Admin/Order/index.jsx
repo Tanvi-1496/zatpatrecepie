@@ -2,15 +2,19 @@ import React, { useState, useEffect } from "react";
 import "../../../styles/Admin/Order/index.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Loader from "../../../components/Loader";
 
 const Order = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(data?.status || "pending");
+  const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("http://localhost:5000/get-order/" + id, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
@@ -21,12 +25,14 @@ const Order = () => {
         if (res.success) {
           setData(res.order);
           setStatus(res.order.status);
+          setLoading(false);
         }
       });
   }, []);
 
   const handleStatus = async (status) => {
     console.log(data);
+    setLoading(true);
 
     try {
       const orderId = data.id;
@@ -57,15 +63,19 @@ const Order = () => {
       console.log(response);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
-
 
   const triggerDelivery = () => {
     setShowConfirm(true);
   };
 
- 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="order-details-page">
       <h2>Order Details</h2>

@@ -22,7 +22,6 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
   const navigate = useNavigate();
 
   const addToCart = (card) => {
-
     setCartProducts((prev) => {
       const exists = prev.find(
         (p) => p.id === card.id && p.weight === card.weight
@@ -43,6 +42,14 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
     setCards((prev) =>
       prev.map((p) => (p.id === id ? { ...p, weight: w } : p))
     );
+  };
+
+  const handleBuyNow = (e, cart) => {
+    e.stopPropagation();
+    setCartProducts(cart);
+    localStorage.setItem("cart", JSON.stringify([cart]));
+
+    navigate("/personal-details");
   };
 
   return (
@@ -72,7 +79,9 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
             .map((card) => (
               <div
                 className="product_item"
-                onClick={() => navigate(`/product/${card.id + "/" + card.category}`)}
+                onClick={() =>
+                  navigate(`/product/${card.id + "/" + card.category}`)
+                }
               >
                 <img src={card.img} className="product_img" alt="jelly image" />
                 <div className="product_content">
@@ -83,6 +92,7 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                     </p>
                     <select
                       value={card.weight || 250}
+                      onClick={(e) => e.stopPropagation()}
                       onChange={(e) =>
                         handleWeights(card.id, Number(e.target.value))
                       }
@@ -106,7 +116,12 @@ const Exploremore = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                   >
                     Add to Cart
                   </button>
-                  <button className="buynow">Buy Now</button>
+                  <button
+                    className="buynow"
+                    onClick={(e) => handleBuyNow(e, card)}
+                  >
+                    Buy Now
+                  </button>
                 </div>
               </div>
             ))}

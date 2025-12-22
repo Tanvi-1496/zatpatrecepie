@@ -17,7 +17,7 @@ const Home = ({
 }) => {
   return (
     <>
-      <Nav setCartOpen={setCartOpen} />
+      <Nav setCartOpen={setCartOpen} cartProducts = {cartProducts} />
       <Hero />
       <Exploremore
         setCartOpen={setCartOpen}

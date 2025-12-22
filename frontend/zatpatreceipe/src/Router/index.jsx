@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -27,9 +27,9 @@ const Router = () => {
 
   const [cartProducts, setCartProducts] = useState(cart);
 
-  cartOpen
-    ? (document.body.style.overflow = "hidden")
-    : (document.body.style.overflow = "auto");
+  useEffect(() => {
+    document.body.style.overflow = cartOpen ? "hidden" : "auto";
+  }, [cartOpen]);
 
   const [cards, setCards] = useState([
     {
@@ -306,7 +306,7 @@ const Router = () => {
             />
           }
         />
-        <Route path="about-us" element={<About setCartOpen={setCartOpen} />} />
+        <Route path="about-us" element={<About setCartOpen={setCartOpen} cartProducts = {cartProducts} />} />
         <Route
           path="all-products"
           element={
@@ -322,7 +322,10 @@ const Router = () => {
         />
         <Route path="personal-details" element={<PersonalDetails />} />
         <Route path="order-summary" element={<OrderSum cart={cart} />} />
-        <Route path="payment" element={<Payment />} />
+        <Route
+          path="payment"
+          element={<Payment setCartProducts={setCartProducts} />}
+        />
         <Route path="completion" element={<Completion />} />
 
         <Route

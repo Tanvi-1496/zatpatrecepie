@@ -3,8 +3,9 @@ import "../../styles/Payment/index.css";
 import QR from "../../assets/Payment/qr.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Loader from "../../components/Loader";
 
-const Payment = () => {
+const Payment = ({ setCartProducts }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -14,8 +15,12 @@ const Payment = () => {
 
   const [txnId, setTxnId] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleConfirm = async () => {
+  const handleConfirm = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
     if (!txnId.trim()) {
       setError("Transaction ID is required");
       return;
@@ -26,26 +31,42 @@ const Payment = () => {
         ({ id, img, description, ...rest }) => rest
       );
 
-      console.log(filteredProducts);
+      const token = localStorage.getItem("adminToken");
 
-      const response = await axios.post("http://localhost:5000/orders", {
-        total,
-        filteredProducts,
-        address,
-        transactionID: txnId,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/orders",
+        {
+          total,
+          filteredProducts,
+          address,
+          transactionID: txnId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.data.success) {
+        setCartProducts([]);
+        localStorage.setItem("cart", JSON.stringify([]));
         navigate("/completion");
       }
 
       console.log(response);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
 
     setError("");
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <section className="payment">

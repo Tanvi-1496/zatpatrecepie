@@ -3,10 +3,10 @@ import "../../styles/AboutUs/index.css";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 
-const AboutUs = ({setCartOpen={setCartOpen}}) => {
+const AboutUs = ({ setCartOpen, cartProducts }) => {
   return (
     <div className="aboutus_container">
-      <Nav setCartOpen={setCartOpen}/>
+      <Nav setCartOpen={setCartOpen} cartProducts={cartProducts} />
       <section className="hero_section">
         <div className="hero_blob">
           <h1>Zatpatrecepie</h1>

@@ -3,6 +3,7 @@ import "../../styles/PersonalDetails/index.css";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { RxCross1 } from "react-icons/rx";
 
 const PersonalDetails = () => {
   const [form, setForm] = useState({
@@ -62,6 +63,7 @@ const PersonalDetails = () => {
 
   const handleDelAdd = (index) => {
     setAddress((prev) => prev.filter((p, i) => i !== index));
+    setEdit(false);
 
     setForm({
       name: "",
@@ -143,7 +145,19 @@ const PersonalDetails = () => {
 
       {(address.length === 0 || formVisible === true) && (
         <form className="personal-details_form" onSubmit={handleSubmit}>
-          <h2 className="personal-details_formHeading">Delivery Details</h2>
+          <div className="personal-details_headingWrap">
+            <h2 className="personal-details_formHeading">Delivery Details</h2>
+            {(edit === true || (formVisible === true && address.length > 0 )) && (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setFormVisible(false);
+                }}
+              >
+                <RxCross1 />
+              </button>
+            )}
+          </div>
 
           <div className="personal-details_formInputWrap">
             <label>Name</label>
@@ -207,7 +221,7 @@ const PersonalDetails = () => {
                   )
                 );
                 setFormVisible(false);
-                setEdit(false)
+                setEdit(false);
               }}
             >
               update adddress

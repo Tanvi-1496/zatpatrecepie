@@ -4,13 +4,11 @@ import "../../../styles/Admin/Dashboard/index.css";
 import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-
   return (
     <div className="dashboard">
       <Sidebar />
-      <div className="dashboard-content">
-        <Outlet />
-      </div>
+
+      <Outlet />
     </div>
   );
 };

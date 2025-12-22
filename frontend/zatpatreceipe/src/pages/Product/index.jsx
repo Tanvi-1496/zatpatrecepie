@@ -32,6 +32,14 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
     );
   };
 
+  const handleBuyNow = (e, cart) => {
+    e.stopPropagation();
+    setCartProducts(cart);
+    localStorage.setItem("cart", JSON.stringify([cart]));
+
+    navigate("/personal-details");
+  };
+
   return (
     <section className="prod">
       {cards
@@ -87,7 +95,12 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                 Add to Cart
               </button>
 
-              <button className="buynow --desktopBtn">Buy Now</button>
+              <button
+                className="buynow --desktopBtn"
+                onClick={(e) => handleBuyNow(e, card)}
+              >
+                Buy Now
+              </button>
             </div>
           </div>
         ))}
@@ -113,6 +126,7 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                   </p>
                   <select
                     value={card.weight || 250}
+                    onClick={(e) => e.stopPropagation()}
                     onChange={(e) =>
                       handleWeights(card.id, Number(e.target.value))
                     }
@@ -136,7 +150,12 @@ const Product = ({ setCartOpen, setCartProducts, cards, setCards }) => {
                 >
                   Add to Cart
                 </button>
-                <button className="buynow">Buy Now</button>
+                <button
+                  className="buynow"
+                  onClick={(e) => handleBuyNow(e, card)}
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           ))}

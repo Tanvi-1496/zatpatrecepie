@@ -5,8 +5,10 @@ import { IoFastFoodOutline } from "react-icons/io5";
 import { GiHamburger } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
 
-const Nav = ({ setCartOpen }) => {
+const Nav = ({ setCartOpen, cartProducts }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const cartCount = cartProducts.reduce((acc, item) => acc + item.quantity, 0);
 
   mobileMenuOpen
     ? (document.body.style.overflow = "hidden")
@@ -27,8 +29,12 @@ const Nav = ({ setCartOpen }) => {
         </a>
       </div>
       <div className="navbar_btns">
-        <button className="navbar_cart">
-          <IoFastFoodOutline onClick={() => setCartOpen(true)} />
+        <button className="navbar_cart" onClick={() => setCartOpen(true)}>
+          <IoFastFoodOutline size={24} />
+
+          {cartCount > 0 && (
+            <span className="cart-badge">{cartCount}</span>
+          )}
         </button>
         <button className="navbar_menu" onClick={() => setMobileMenuOpen(true)}>
           <GiHamburger />

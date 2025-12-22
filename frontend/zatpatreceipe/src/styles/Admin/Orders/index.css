@@ -5,18 +5,17 @@
   flex-direction: column;
 }
 
-.orders-page_header{
+.orders-page_header {
   display: flex;
   justify-content: space-between;
 }
 
-.orders-page_orderRecord{
+.orders-page_orderRecord {
   display: flex;
   gap: 20px;
-
 }
 
-.orders-page_orderRecord_item{
+.orders-page_orderRecord_item {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -61,6 +60,11 @@
   align-items: center;
 }
 
-#data-row{
+#data-row {
   cursor: pointer;
+}
+
+.status-filter {
+  margin-top: 30px;
+  width: 200px;
 }

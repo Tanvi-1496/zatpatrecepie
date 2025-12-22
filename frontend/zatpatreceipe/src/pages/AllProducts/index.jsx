@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 
-
 const AllProducts = ({
   cards,
   setCards,
@@ -41,6 +40,14 @@ const AllProducts = ({
   const [activeCat, setActiveCat] = useState("one");
 
   const navigate = useNavigate();
+
+  const handleBuyNow = (e, cart) => {
+    e.stopPropagation();
+    setCartProducts(cart);
+    localStorage.setItem("cart", JSON.stringify([cart]));
+
+    navigate("/personal-details");
+  };
 
   return (
     <div className="productsContainer">
@@ -86,6 +93,7 @@ const AllProducts = ({
 
                     <select
                       value={card.weight || 250}
+                      onClick={(e) => e.stopPropagation()}
                       onChange={(e) =>
                         handleWeights(card.id, Number(e.target.value))
                       }
@@ -107,13 +115,18 @@ const AllProducts = ({
                     Add to Cart
                   </button>
 
-                  <button className="buynow">Buy Now</button>
+                  <button
+                    className="buynow"
+                    onClick={(e) => handleBuyNow(e, card)}
+                  >
+                    Buy Now
+                  </button>
                 </div>
               </div>
             ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -8,10 +8,13 @@ import {
 } from "@tanstack/react-table";
 import "../../../styles/Admin/Orders/index.css";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../components/Loader";
 
 const Orders = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState("all");
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -25,6 +28,8 @@ const Orders = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("http://localhost:5000/get-orders", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
@@ -34,6 +39,7 @@ const Orders = () => {
       .then((res) => {
         if (res.success) {
           setData(res.orders);
+          setLoading(false);
         }
       });
   }, []);
@@ -135,6 +141,10 @@ const Orders = () => {
     getSortedRowModel: getSortedRowModel(),
   });
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="orders-page">
       <div className="orders-page_header">
@@ -167,6 +177,17 @@ const Orders = () => {
         </ul>
       </div>
 
+      <select
+        className="status-filter"
+        onChange={(e) => setSelectedStatus(e.target.value)}
+      >
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="baking">Baking</option>
+        <option value="sent_for_delivery">Sent for Delivery</option>
+        <option value="completed">Completed</option>
+      </select>
+
       <table className="orders-table">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -191,21 +212,28 @@ const Orders = () => {
         </thead>
 
         <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr
-              id="data-row"
-              key={row.id}
-              onClick={() =>
-                navigate(`/admin-dashboard/order/${row.original.id}`)
-              }
-            >
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
+          {table
+            .getRowModel()
+            .rows.filter((row) =>
+              selectedStatus === "all"
+                ? true
+                : row.original.status === selectedStatus
+            )
+            .map((row) => (
+              <tr
+                id="data-row"
+                key={row.id}
+                onClick={() =>
+                  navigate(`/admin-dashboard/order/${row.original.id}`)
+                }
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
         </tbody>
       </table>
 

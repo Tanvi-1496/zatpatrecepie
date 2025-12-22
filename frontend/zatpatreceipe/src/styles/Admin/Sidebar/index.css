@@ -33,6 +33,7 @@
 .sidebar-link:hover {
   background-color: #374151;
   color: #fff;
+  padding: 10px;
 }
 
 .sidebar-link.active {

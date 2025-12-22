@@ -7,7 +7,7 @@ const {customerOrders,getAllOrders, setStatus, getOrder} = require( "../controll
 
 const adminAuth = require("../middleware/middleware");
 
-router.post("/orders", adminAuth, customerOrders)
+router.post("/orders", customerOrders)
 router.get("/get-orders", adminAuth, getAllOrders);
 router.get("/get-order/:id", adminAuth, getOrder);
 router.post("/update-status", adminAuth, setStatus);
